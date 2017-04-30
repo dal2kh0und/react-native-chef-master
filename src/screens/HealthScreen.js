@@ -12,19 +12,20 @@ import {
   View
 } from 'react-native';
 
-export default class MenuScreen extends Component {
+export default class HealthScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Menu Screen!
+          Health Screen!
         </Text>
         <Text style={styles.instructions}>
-          หน้าต่างสำหรับเมนูและสูตรอาหาร 
+          หน้าต่างข้อมูลโภชนาการของวัตถุดิบและส่วนผสม
         </Text>
         <Text style={styles.instructions}>
-          แสดงข้อมูล เมนูอาหาร, แยกประเภทอาหาร,{'\n'}
-          แสดงขั้นตอนการทำอาหาร
+          แสดงข้อมูลวัตถุดิบและส่วนผสมของอาหาร,{'\n'}
+          บอกแคลลอลี่และผลดีของวัตถุดิบแต่ละชนิด,{'\n'}
+          ให้คำแนะนำของวัตถุดิบนั้นๆ
         </Text>
       </View>
     );
