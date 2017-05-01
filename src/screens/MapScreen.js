@@ -4,11 +4,13 @@ import {
   StyleSheet,
   Text,
   View,
-  Dimensions
+  Dimensions,
+  Image
 } from 'react-native';
 
 // import map apis
 import MapView from 'react-native-maps';
+
 
 // dimension for map
 var {width, height} = Dimensions.get('window');
@@ -25,11 +27,23 @@ export default class MapScreen extends Component {
     super(props);
     this.state ={
       region: {
-        latitude: 37.78825,
-        longitude: -122.4324,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-      }
+        latitude: 13.764884,
+        longitude: 100.538265,
+        latitudeDelta: 0.005,
+        longitudeDelta: 0.005,
+      },
+      markers:[
+        {latlng: {latitude: 13.764884, longitude: 100.538265},
+          image: require('../images/attention.png'),
+          photo: require('../images/Victory_Monument.jpg'),
+          title: "Victory Monument", description: "A large military monument."},
+        {latlng: {latitude: 13.763681, longitude: 100.538125},
+          image: require('../images/music.png'),
+          title: "Saxohpone Club", description: "A music club."},
+        {latlng: {latitude: 13.764595, longitude: 100.537438},
+          image: require('../images/shopping.png'),
+          title: "Coco Department Store", description: "Fashion department."},
+      ]
     };
     this.onRegionChange = this.onRegionChange.bind(this);
   }
@@ -45,11 +59,29 @@ export default class MapScreen extends Component {
           mapType="standard"
           showsUserLocation={true}
           followsUserLocation={true}
-          showsCompass={true}
-          showsPointOfInterest={false}
           region={this.state.region}
           onRegionChange={this.onRegionChange}
-        />
+        >
+        {this.state.markers.map((marker, i) => (
+          <MapView.Marker
+            key={i}
+            coordinate={marker.latlng}
+            image={marker.image}
+            title={marker.title}
+            description={marker.description}>
+            <MapView.Callout>
+              <View style={styles.callout}>
+                <Image style={styles.calloutPhoto}
+                  source={marker.photo}/>
+                <Text style={styles.calloutTitle}>
+                  {marker.title}
+                </Text>
+                <Text>{marker.description}</Text>
+              </View>
+            </MapView.Callout>
+          </MapView.Marker>
+        ))}
+        </MapView>
       </View>
     );
   }
@@ -59,9 +91,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  map:{
+  map: {
     width: width,
     height: height
+  },
+  button: {
+    alignItems: 'center'
+  },
+  callout: {
+    flex: 1,
+    padding: 10,
+    marginBottom: 10
+  },
+  calloutPhoto: {
+    flex: 1,
+    width: 166,
+    height: 83
+  },
+  calloutTitle: {
+    fontSize: 16
   }
 });
 
