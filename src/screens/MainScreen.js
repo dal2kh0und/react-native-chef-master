@@ -9,24 +9,40 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Image,
+  Dimensions,
+  ScrollView
 } from 'react-native';
 
+
+var {width, height} = Dimensions.get('window');
+
+
 export default class MainScreen extends Component {
+
+  // hide navigation bar
+  static navigatorStyle = {
+    navBarHidden: true,
+    statusBarTextColorScheme: 'light'
+  };
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Main Screen!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+      <Image source={require('../images/background.jpg')}
+        style={styles.background}>
+        <ScrollView style={styles.container}>
+
+          <View style={styles.main}>
+            <Text>Daily Content Here!</Text>
+          </View>
+
+          <View style={styles.menu}>
+            <Text>Main Content Here!</Text>
+          </View>
+
+        </ScrollView>
+      </Image>
     );
   }
 }
@@ -34,20 +50,20 @@ export default class MainScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    paddingTop: 50,
+    padding: 20
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  background: {
+    width: width,
+    height: height,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  main: {
+    //backgroundColor: 'red',
+    height: 200,
   },
+  menu: {
+    marginTop: 30,
+    //backgroundColor: 'red',
+    height: 900,
+  }
 });
-
-

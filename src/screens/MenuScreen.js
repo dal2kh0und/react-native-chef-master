@@ -9,45 +9,97 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Dimensions,
+  ListView,
+  Image
 } from 'react-native';
 
-export default class MenuScreen extends Component {
+import api from '../api/api.js';
+
+var {width, height} = Dimensions.get('window');
+
+class MenuScreen extends Component {
+
+  static navigatorStyle = {
+    navBarHideOnScroll: true,
+    drawUnderTabBar: true,
+    drawUnderNavBar: true,
+    navBarBlur: true,
+    //navBarBackgroundColor: 'rgba(28, 28, 40, 1)',
+    navBarTextColor: 'white',
+
+    // statu bar
+    statusBarTextColorScheme: 'light',
+    statusBarHideWithNavBar: true,
+  };
+
+  constructor() {
+    super();
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.state = {
+      dataSource: ds.cloneWithRows([]),
+    };
+    api.search('egg').then((data) => {
+      this.setState({dataSource: ds.cloneWithRows(data)});
+    });
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Menu Screen!
-        </Text>
-        <Text style={styles.instructions}>
-          หน้าต่างสำหรับเมนูและสูตรอาหาร 
-        </Text>
-        <Text style={styles.instructions}>
-          แสดงข้อมูล เมนูอาหาร, แยกประเภทอาหาร,{'\n'}
-          แสดงขั้นตอนการทำอาหาร
-        </Text>
-      </View>
+      <Image source={require('../images/background.jpg')}
+        style={styles.background}>
+        <ListView contentContainerStyle={styles.list}
+          enableEmptySections={true}
+          dataSource={this.state.dataSource}
+          renderRow={(rowData) => {
+            return (
+              <View style={styles.item}>
+                <Image style={styles.image} source={{uri: rowData.image_url}}/>
+                <View style={styles.bottomBox}><Text style={styles.title}>{rowData.title}</Text></View>
+              </View>
+            );
+          }}
+        />
+      </Image>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  list: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginTop: 64
+  },
+  item: {
+    backgroundColor: 'rgba(28, 28, 40, .75)',
+    width: width / 2,
+    height: width / 2,
+  },
+  image:{
+    height: 150,
+  },
+  bottomBox: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    borderLeftWidth: 0.5,
+    borderRightWidth: 0.5,
+    borderColor: 'rgba(28, 28, 40, 1)'
   },
-  welcome: {
-    fontSize: 20,
+  title:{
+    padding: 2,
     textAlign: 'center',
-    margin: 10,
+    fontSize: 12,
+    color: 'white',
+    fontWeight: '500',
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  background: {
+    width: width,
+    height: height,
+    paddingBottom: 49,
+  }
 });
 
-
+export default MenuScreen;

@@ -11,7 +11,6 @@ iconsLoaded.then(() => {
 
 
 function startApp() {
-
 // start the app
 Navigation.startTabBasedApp({
   tabs: [
@@ -27,7 +26,7 @@ Navigation.startTabBasedApp({
       screen: 'chef.MenuScreen',
       icon: iconsMap['ios-bookmarks-outline'],
       selectedIcon: iconsMap['ios-bookmarks'], // iOS only
-      title: 'Recipes'
+      title: 'Popular Recipes'
     },
     {
       label: 'Nearby',
@@ -43,7 +42,13 @@ Navigation.startTabBasedApp({
       selectedIcon: iconsMap['ios-leaf'], // iOS only
       title: 'Health'
     }
-  ]
+  ],
+  tabsStyle: {
+    tabBarButtonColor: 'gray', // change the color of the tab icons and text (also unselected)
+    tabBarSelectedButtonColor: '#ff9900', // change the color of the selected tab icon and text (only selected)
+    tabBarBackgroundColor: 'rgba(28, 28, 40, 0.4)', // change the background color of the tab bar
+    tabBarTranslucent: true,
+  }
 });
 
 }
