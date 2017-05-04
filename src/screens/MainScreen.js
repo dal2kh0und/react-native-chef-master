@@ -87,11 +87,13 @@ export default class MainScreen extends Component {
             </View>
 
             <View style={styles.menu1}>
-              <View style={styles.submenu1}>
-                <Icon name="ios-cafe" size={50} color={'gray'}/>
-                <Text style={{color: 'white', textAlign:'center'}}>Coffee Time</Text>
-              </View>
-              <Image source={require('../images/coffee.jpg')} style={styles.submenu1}/>
+              <TouchableOpacity style={{flex: 1, flexDirection: 'row',flexWrap: 'wrap'}}>
+                <View style={styles.submenu1}>
+                  <Icon name="ios-cafe" size={50} color={'gray'}/>
+                  <Text style={{color: 'white', textAlign:'center'}}>Coffee Time</Text>
+                </View>
+                <Image source={require('../images/coffee.jpg')} style={styles.submenu1}/>
+              </TouchableOpacity>
               <View style={styles.submenu1}>
                 <Icon name="ios-bookmarks" size={50} color={'gray'}/>
                 <Text style={{color: 'white', textAlign:'center'}}>Updated Menu</Text>
