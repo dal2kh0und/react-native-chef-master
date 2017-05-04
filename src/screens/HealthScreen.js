@@ -24,7 +24,7 @@ export default class HealthScreen extends Component {
     this.state = {
       dataSource: ds.cloneWithRows([]),
     };
-    api.search('egg').then((data) => {
+    api.search('chicken').then((data) => {
       this.setState({dataSource: ds.cloneWithRows(data)});
     });
   }
@@ -45,7 +45,7 @@ export default class HealthScreen extends Component {
                   <View style={{flex:10, padding: 10}}>
                     <Text style={styles.title}>{rowData.title}</Text>
                   </View>
-                  
+
               </View>
             </TouchableOpacity>
           )
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 100
   },
-  
+
   title:{
     fontSize: 20
   },
@@ -78,4 +78,3 @@ const styles = StyleSheet.create({
     height: 150,
   }
 });
-
