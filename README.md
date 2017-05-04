@@ -28,4 +28,4 @@ React-Native version: 0.42.0, Tested on iOS 10.2+
 
 ## License
 
-Some images resources are not support bt Copyright, the images are used only for term project.
+Some images resources are not support by Copyright, the images are used only for term project.
