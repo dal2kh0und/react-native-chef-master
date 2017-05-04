@@ -9,46 +9,73 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableOpacity,
+  Image,
+  rowData,
+  ListView
 } from 'react-native';
+import api from '../api/api.js';
 
 export default class HealthScreen extends Component {
+  constructor() {
+    super();
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.state = {
+      dataSource: ds.cloneWithRows([]),
+    };
+    api.search('egg').then((data) => {
+      this.setState({dataSource: ds.cloneWithRows(data)});
+    });
+  }
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Health Screen!
-        </Text>
-        <Text style={styles.instructions}>
-          หน้าต่างข้อมูลโภชนาการของวัตถุดิบและส่วนผสม
-        </Text>
-        <Text style={styles.instructions}>
-          แสดงข้อมูลวัตถุดิบและส่วนผสมของอาหาร,{'\n'}
-          บอกแคลลอลี่และผลดีของวัตถุดิบแต่ละชนิด,{'\n'}
-          ให้คำแนะนำของวัตถุดิบนั้นๆ
-        </Text>
-      </View>
+      <ListView style={styles.container}
+        dataSource={this.state.dataSource}
+        enableEmptySections={true}
+        renderRow={(rowData) => {
+          console.log('rowData', rowData);
+          return (
+            <TouchableOpacity onPress={()=> this.props.navigator.push({index: 1,
+               passProps:{imdbID: rowData.imdbID}})}>
+              <View style={styles.row}>
+                  <View style={{flex:3}}>
+                    <Image style={styles.image} source={{uri: rowData.image_url}}/>
+                  </View>
+                  <View style={{flex:10, padding: 10}}>
+                    <Text style={styles.title}>{rowData.title}</Text>
+                  </View>
+                  
+              </View>
+            </TouchableOpacity>
+          )
+        }
+
+        }
+        renderSeparator={(sectionID, rowID, adjacentRowHighlighted) =>
+          <View key={rowID} style={{height:1, backgroundColor: 'lightgray'}}/>
+        }
+      />
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
+const styles = StyleSheet.create({
+  container:{
+
+    flex:1
+  },
+  row:{
+    flexDirection: 'row',
+    height: 100
+  },
+  
+  title:{
+    fontSize: 20
+  },
+  image:{
+    height: 150,
+  }
+});
 
