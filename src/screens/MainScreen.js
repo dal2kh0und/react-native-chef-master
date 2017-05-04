@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
   },
   maintitle: {
     flex: 1,
-    backgroundColor: 'rgba(28, 28, 40, .65)',
+    backgroundColor: 'rgba(28, 28, 40, .6)',
     textAlign: 'center',
     paddingTop: 150,
     fontSize: 30,
