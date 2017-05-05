@@ -1,4 +1,4 @@
-React-Native cross-platform cooking application, Implement as term project for ITS485 course.
+React-Native cross-platform cooking application, Implement as term project for ITS485 course.test
 
 # Chef Application 
 
