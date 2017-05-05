@@ -57,7 +57,6 @@ export default class HealthScreen extends Component {
                   <View style={{flex:10, padding: 10}}>
                     <Text style={styles.title}>{rowData.title}</Text>
                   </View>
-
               </View>
             </TouchableOpacity>
           )
