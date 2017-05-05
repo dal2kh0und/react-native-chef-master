@@ -8,8 +8,8 @@ React-Native version: 0.42.0, Tested on iOS 10.2+
 ## Group Members
 
 1. 5622770675 Kamolchanok Ngamponkrang
-2. Suphatcha
-3. Sassawat
+2. 5622772366 Suphatcha Chotikunopakarn
+3. 5622790970 Sassawat Thippayajindakul
 4. 5622793396 Metis Naknawaphan
 
 ## Main Features
