@@ -13,9 +13,22 @@ import {
   TouchableOpacity,
   Image,
   rowData,
-  ListView
+  ListView,
+  Navigator,
+  TouchableHighlight
 } from 'react-native';
 import api from '../api/api.js';
+import RowHealthScreen from './RowHealthScreen.js';
+import InfoHealthScreen from './InfoHealthScreen.js';
+
+
+const routes = [
+  {
+    index: 0
+  }, {
+    index: 1
+  }
+]
 
 export default class HealthScreen extends Component {
 
@@ -42,30 +55,40 @@ export default class HealthScreen extends Component {
   }
   render() {
     return (
-      <ListView style={styles.container}
-        dataSource={this.state.dataSource}
-        enableEmptySections={true}
-        renderRow={(rowData) => {
-          console.log('rowData', rowData);
-          return (
-            <TouchableOpacity onPress={()=> this.props.navigator.push({index: 1,
-               passProps:{imdbID: rowData.imdbID}})}>
-              <View style={styles.row}>
-                  <View style={{flex:3}}>
-                    <Image style={styles.image} source={{uri: rowData.image_url}}/>
-                  </View>
-                  <View style={{flex:10, padding: 10}}>
-                    <Text style={styles.title}>{rowData.title}</Text>
-                  </View>
+      <Navigator
+          initialRoute={routes[1]}
+          initialRouteStack={routes}
+          renderScene={
+            (route, navigator) => {
+              switch (route.index) {
+                case 0: return (<RowHealthScreen navigator={navigator} /*route={routes[route.index]}*/ {...route.passProps}></RowHealthScreen>);
+                case 1: return (<InfoHealthScreen navigator={navigator} /*route={routes[route.index]}*/ {...route.passProps}></InfoHealthScreen>);
+              }
+            }
+          }
+          configureScene={
+            (route, routeStack) =>
+              Navigator.SceneConfigs.FloatFromBottom
+          }
+          navigationBar={
+           <Navigator.NavigationBar
+             routeMapper={{
+               LeftButton: (route, navigator, index, navState) => {
+                 if (route.index == 0){
+                   return null;
+                 }
+                 return (
+                   <TouchableOpacity onPress={()=>navigator.pop()}>
+                     <Text style={[styles.navigationBarText, {justifyContent:'flex-end'}]}>X</Text>
+                   </TouchableOpacity>
+                 )
+               },
+               RightButton: (route, navigator, index, navState) => { return null; },
+               Title: (route, navigator, index, navState) =>
+                 { return (<Text style={[styles.navigationBarText, styles.titleText]}>{routes[route.index].title}</Text>); },
+             }}
 
-              </View>
-            </TouchableOpacity>
-          )
-        }
-
-        }
-        renderSeparator={(sectionID, rowID, adjacentRowHighlighted) =>
-          <View key={rowID} style={{height:1, backgroundColor: 'lightgray'}}/>
+           />
         }
       />
     );
@@ -88,5 +111,12 @@ const styles = StyleSheet.create({
   },
   image:{
     height: 150,
+  },
+  navigationBar:{
+    backgroundColor: 'darkred',
+  },
+  navigationBarText:{
+    padding: 10,
+    fontSize: 15
   }
 });
