@@ -18,6 +18,18 @@ import {
 import api from '../api/api.js';
 
 export default class HealthScreen extends Component {
+
+  static navigatorStyle = {
+    navBarHidden: false,
+    drawUnderTabBar: true,
+    navBarBlur: true,
+    //navBarBackgroundColor: 'rgba(28, 28, 40, 1)',
+
+    // statu bar
+    //statusBarTextColorScheme: 'light',
+  };
+
+
   constructor() {
     super();
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
