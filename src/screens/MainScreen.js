@@ -30,6 +30,12 @@ export default class MainScreen extends Component {
     statusBarTextColorScheme: 'light'
   };
 
+  constructor(props) {
+    super(props);
+    // if you want to listen on navigator events, set this up
+    //this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+  }
+
   render() {
     return (
       <Image source={require('../images/background.jpg')}
@@ -58,7 +64,7 @@ export default class MainScreen extends Component {
 
           <View style={styles.submain}>
 
-            <TouchableOpacity style={styles.menu1}>
+            <TouchableOpacity onPress={this.onPushPress.bind(this)} style={styles.menu1}>
               <View style={styles.submenu1}>
                 <Icon name="ios-restaurant" size={50} color={'gray'}/>
                 <Text style={{color: 'white', textAlign:'center'}}>Recommend!!</Text>
@@ -105,6 +111,13 @@ export default class MainScreen extends Component {
         </ScrollView>
       </Image>
     );
+  }
+
+  onPushPress() {
+    this.props.navigator.push({
+      title: "More",
+      screen: "chef.newMenu"
+    });
   }
 }
 
