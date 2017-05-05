@@ -19,7 +19,7 @@ Navigation.startTabBasedApp({
       screen: 'chef.MainScreen', // this is a registered name for a screen
       icon: iconsMap['ios-home-outline'],
       selectedIcon: iconsMap['ios-home'], // iOS only
-      title: 'Main Menu'
+      title: 'Main'
     },
     {
       label: 'Recipes',
