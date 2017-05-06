@@ -16,19 +16,21 @@ import {
   Image
 } from 'react-native';
 
+
 import api from '../api/api.js';
+
 
 var {width, height} = Dimensions.get('window');
 
 class MenuScreen extends Component {
 
   static navigatorButtons = {
-    rightButtons: [
+    leftButtons: [
       {
-        title: 'Edit',
-        id: 'edit',
-        buttonColor: 'white'
-      }
+        //title: 'Category',
+        id: 'category',
+        icon: require('../../src/icon/navicon_menu.png'),
+      },
     ]
   };
 
@@ -39,6 +41,7 @@ class MenuScreen extends Component {
     navBarBlur: true,
     //navBarBackgroundColor: 'rgba(28, 28, 40, 1)',
     navBarTextColor: 'white',
+    navBarButtonColor: 'darkgray',
 
     // statu bar
     statusBarTextColorScheme: 'light',

@@ -28,7 +28,7 @@ export default class MainScreen extends Component {
   static navigatorStyle = {
     navBarHidden: true,
     statusBarTextColorScheme: 'light',
-    navBarButtonColor: 'white'
+    navBarButtonColor: '#ff9900'
   };
 
   constructor(props) {
