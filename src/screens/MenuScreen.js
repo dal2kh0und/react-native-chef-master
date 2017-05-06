@@ -24,17 +24,15 @@ class MenuScreen extends Component {
 
 
   static navigatorStyle = {
-    drawUnderTabBar: true,
     drawUnderNavBar: true,
-    navBarBlur: true,
+    //navBarBlur: true,
+    navBarTranslucent: true,
     //navBarBackgroundColor: 'rgba(28, 28, 40, 1)',
-    navBarTextColor: 'white',
-    navBarButtonColor: 'darkgray',
+    // navBarTextColor: 'white',
+    // navBarButtonColor: 'darkgray',
 
     // statu bar
     statusBarTextColorScheme: 'light',
-    navBarButtonColor: '#ff9900',
-    statusBarHideWithNavBar: true,
   };
 
   constructor() {

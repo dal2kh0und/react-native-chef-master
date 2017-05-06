@@ -27,7 +27,8 @@ export default class recommend extends Component {
 
   static navigatorStyle = {
     drawUnderNavBar: true,
-    navBarBlur: true,
+    //navBarBlur: true,
+    navBarTranslucent: true,
     statusBarTextColorScheme: 'light',
   };
 
