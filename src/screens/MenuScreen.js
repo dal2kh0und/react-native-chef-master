@@ -24,15 +24,15 @@ var {width, height} = Dimensions.get('window');
 
 class MenuScreen extends Component {
 
-  static navigatorButtons = {
-    leftButtons: [
-      {
-        //title: 'Category',
-        id: 'category',
-        icon: require('../../src/icon/navicon_menu.png'),
-      },
-    ]
-  };
+  // static navigatorButtons = {
+  //   leftButtons: [
+  //     {
+  //       //title: 'Category',
+  //       id: 'category',
+  //       icon: require('../../src/icon/navicon_menu.png'),
+  //     },
+  //   ]
+  // };
 
   static navigatorStyle = {
     navBarHideOnScroll: true,
@@ -57,17 +57,17 @@ class MenuScreen extends Component {
     api.search('egg').then((data) => {
       this.setState({dataSource: ds.cloneWithRows(data)});
     });
-    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+    // this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
-  onNavigatorEvent(event) {
-    if (event.id == 'category'){
-      this.props.navigator.push({
-        title: "Category",
-        screen: "chef.categories"
-      });
-    }
-  }
+  // onNavigatorEvent(event) {
+  //   if (event.id == 'category'){
+  //     this.props.navigator.push({
+  //       title: "Category",
+  //       screen: "chef.categories"
+  //     });
+  //   }
+  // }
 
   render() {
     return (
