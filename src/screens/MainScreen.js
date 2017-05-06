@@ -27,7 +27,8 @@ export default class MainScreen extends Component {
   // hide navigation bar
   static navigatorStyle = {
     navBarHidden: true,
-    statusBarTextColorScheme: 'light'
+    statusBarTextColorScheme: 'light',
+    navBarButtonColor: 'white'
   };
 
   constructor(props) {
@@ -115,8 +116,8 @@ export default class MainScreen extends Component {
 
   onPushPress() {
     this.props.navigator.push({
-      title: "More",
-      screen: "chef.newMenu"
+      title: "Recommend",
+      screen: "chef.recommend",
     });
   }
 }
