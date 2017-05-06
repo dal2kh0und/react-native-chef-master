@@ -6,7 +6,7 @@ import MenuScreen from './MenuScreen';
 import HealthScreen from './HealthScreen';
 import RowHealthScreen from './RowHealthScreen';
 import InfoHealthScreen from './InfoHealthScreen';
-import newMenu from './subscreens/newMenu';
+import recommend from './subscreens/recommend';
 
 // register all screens of the app (including internal ones)
 export function registerScreens() {
@@ -16,5 +16,5 @@ export function registerScreens() {
   Navigation.registerComponent('chef.HealthScreen', () => HealthScreen);
   Navigation.registerComponent('chef.RowHealthScreen', () => RowHealthScreen);
   Navigation.registerComponent('chef.InfoHealthScreen', () => InfoHealthScreen);
-  Navigation.registerComponent('chef.newMenu', () => newMenu);
+  Navigation.registerComponent('chef.recommend', () => recommend);
 }

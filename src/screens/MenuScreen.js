@@ -22,6 +22,16 @@ var {width, height} = Dimensions.get('window');
 
 class MenuScreen extends Component {
 
+  static navigatorButtons = {
+    rightButtons: [
+      {
+        title: 'Edit',
+        id: 'edit',
+        buttonColor: 'white'
+      }
+    ]
+  };
+
   static navigatorStyle = {
     navBarHideOnScroll: true,
     drawUnderTabBar: true,
@@ -50,6 +60,7 @@ class MenuScreen extends Component {
     return (
       <Image source={require('../images/background.jpg')}
         style={styles.background}>
+
         <ListView contentContainerStyle={styles.list}
           enableEmptySections={true}
           dataSource={this.state.dataSource}
@@ -62,6 +73,7 @@ class MenuScreen extends Component {
             );
           }}
         />
+
       </Image>
     );
   }

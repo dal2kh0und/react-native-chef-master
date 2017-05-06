@@ -13,20 +13,22 @@ import {
   TouchableOpacity,
   Image,
   rowData,
-  ListView
+  ListView,
+  Dimensions
 } from 'react-native';
+
 import api from '../../api/api.js';
+
+
+var {width, height} = Dimensions.get('window');
+
 
 export default class newMenu extends Component {
 
   static navigatorStyle = {
-    navBarHidden: false,
-    drawUnderTabBar: true,
-    //navBarBlur: true,
-    //navBarBackgroundColor: 'rgba(28, 28, 40, 1)',
-    //tabBarHidden: true
-    // statu bar
-    //statusBarTextColorScheme: 'light',
+    drawUnderNavBar: true,
+    navBarBlur: true,
+    statusBarTextColorScheme: 'light',
   };
 
 
@@ -36,16 +38,19 @@ export default class newMenu extends Component {
     this.state = {
       dataSource: ds.cloneWithRows([]),
     };
-    api.search('cookie').then((data) => {
+    api.search('steak').then((data) => {
       this.setState({dataSource: ds.cloneWithRows(data)});
     });
   }
   render() {
     return (
+      <Image source={require('../../images/background.jpg')}
+        style={styles.background}>
+
       <ListView style={styles.container}
         dataSource={this.state.dataSource}
         enableEmptySections={true}
-        renderRow={(rowData) => {
+        renderRow={(rowData, rowID) => {
           console.log('rowData', rowData);
           return (
             <TouchableOpacity onPress={()=> this.props.navigator.push({index: 1,
@@ -57,17 +62,19 @@ export default class newMenu extends Component {
                   <View style={{flex:10, padding: 10}}>
                     <Text style={styles.title}>{rowData.title}</Text>
                   </View>
-
+                  <View key={rowID}>
+                    <Text>Next</Text>
+                  </View>
               </View>
             </TouchableOpacity>
           )
         }
 
         }
-        renderSeparator={(sectionID, rowID, adjacentRowHighlighted) =>
-          <View key={rowID} style={{height:1, backgroundColor: 'lightgray'}}/>
-        }
+
       />
+
+      </Image>
     );
   }
 }
@@ -75,18 +82,22 @@ export default class newMenu extends Component {
 
 const styles = StyleSheet.create({
   container:{
-
-    flex:1
+    flex:1,
+    marginTop: 64
   },
   row:{
     flexDirection: 'row',
     height: 100
   },
-
   title:{
     fontSize: 20
   },
   image:{
-    height: 150,
+    flex: 1
+  },
+  background: {
+    width: width,
+    height: height,
+    paddingBottom: 49,
   }
 });
