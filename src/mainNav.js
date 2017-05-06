@@ -23,10 +23,10 @@ Navigation.startTabBasedApp({
     },
     {
       label: 'Recipes',
-      screen: 'chef.popular',
+      screen: 'chef.MenuScreen',
       icon: iconsMap['ios-bookmarks-outline'],
       selectedIcon: iconsMap['ios-bookmarks'], // iOS only
-      title: 'Popular Recipes'
+      title: 'Category'
     },
     {
       label: 'Nearby',

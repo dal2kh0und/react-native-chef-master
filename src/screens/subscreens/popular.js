@@ -41,8 +41,7 @@ class popular extends Component {
     navBarBlur: true,
     //navBarBackgroundColor: 'rgba(28, 28, 40, 1)',
     navBarTextColor: 'white',
-    navBarButtonColor: 'darkgray',
-
+    navBarButtonColor: '#ff9900',
     // statu bar
     statusBarTextColorScheme: 'light',
     statusBarHideWithNavBar: true,
