@@ -57,6 +57,16 @@ class MenuScreen extends Component {
     api.search('egg').then((data) => {
       this.setState({dataSource: ds.cloneWithRows(data)});
     });
+    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+  }
+
+  onNavigatorEvent(event) {
+    if (event.id == 'category'){
+      this.props.navigator.push({
+        title: "Category",
+        screen: "chef.categories"
+      });
+    }
   }
 
   render() {
