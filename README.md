@@ -1,6 +1,8 @@
+![Chef React Native](https://github.com/dal2kh0und/react-native-chef-master/blob/master/src/images/header.jpg)
+
 React-Native cross-platform cooking application, Implement as term project for ITS485 course.test
 
-# Chef Application 
+# Chef Application
 
 By 4Angies,
 React-Native version: 0.42.0, Tested on iOS 10.2+
