@@ -54,7 +54,7 @@ class popular extends Component {
     this.state = {
       dataSource: ds.cloneWithRows([]),
     };
-    api.search('egg').then((data) => {
+    api.search('batman').then((data) => {
       this.setState({dataSource: ds.cloneWithRows(data)});
     });
     // this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
