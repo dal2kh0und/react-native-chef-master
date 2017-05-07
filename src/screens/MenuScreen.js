@@ -52,9 +52,7 @@ class MenuScreen extends Component {
         <ScrollView style={styles.list}>
 
           <TouchableOpacity onPress={this.onPushPopular.bind(this)} >
-          <View style={styles.header}>
-
-          </View>
+            <Image style={styles.pop}source={require('../images/popback.jpg')}/>
           </TouchableOpacity>
           <ListView
             dataSource={this.state.dataSource}
@@ -83,10 +81,10 @@ const styles = StyleSheet.create({
     height: height,
     paddingBottom: 49,
   },
-  header: {
+  pop: {
     flex: 1,
-    backgroundColor: 'red',
-    height: 200
+    height: 200,
+    // resizeMode:'contain'
   }
 });
 
