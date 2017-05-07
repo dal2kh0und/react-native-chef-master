@@ -43,6 +43,7 @@ export default class recommend extends Component {
       this.setState({dataSource: ds.cloneWithRows(data)});
     });
   }
+  
   render() {
     return (
       <Image source={require('../../images/background.jpg')}

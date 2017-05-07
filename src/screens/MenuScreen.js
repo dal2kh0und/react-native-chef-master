@@ -14,7 +14,8 @@ import {
   Dimensions,
   Image,
   ScrollView,
-  TouchableOpacity
+  TouchableOpacity,
+  ListView
 } from 'react-native';
 
 
@@ -37,7 +38,10 @@ class MenuScreen extends Component {
 
   constructor() {
     super();
-    //this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.state = {
+      dataSource: ds.cloneWithRows(['Appetizer', 'Bread','Breakfast', 'Dessert','Drinks', 'Fruit','Meat', 'Pasta','Poultry','Salad','Seafood','Side disk','Soup']),
+    };
   }
 
 
@@ -45,13 +49,18 @@ class MenuScreen extends Component {
     return (
       <Image source={require('../images/background.jpg')}
         style={styles.background}>
-
         <ScrollView style={styles.list}>
-          <TouchableOpacity onPress={this.onPushPopular.bind(this)} >
-            <Text>Test to popular screen</Text>
-          </TouchableOpacity>
-        </ScrollView>
 
+          <TouchableOpacity onPress={this.onPushPopular.bind(this)} >
+          <View style={styles.header}>
+
+          </View>
+          </TouchableOpacity>
+          <ListView
+            dataSource={this.state.dataSource}
+            renderRow={(rowData) => <Text style={{color: 'white'}}>{rowData}</Text>}/>
+
+        </ScrollView>
       </Image>
     );
   }
@@ -73,6 +82,11 @@ const styles = StyleSheet.create({
     width: width,
     height: height,
     paddingBottom: 49,
+  },
+  header: {
+    flex: 1,
+    backgroundColor: 'red',
+    height: 200
   }
 });
 
