@@ -57,14 +57,15 @@ export default class recommend extends Component {
             <TouchableOpacity onPress={()=> this.props.navigator.push({index: 1,
                passProps:{imdbID: rowData.imdbID}})}>
               <View style={styles.row}>
-                  <View style={{flex:3}}>
+                  <View style={{flex:5}}>
                     <Image style={styles.image} source={{uri: rowData.image_url}}/>
                   </View>
-                  <View style={{flex:10, padding: 10}}>
+                  <View style={{flex:9, padding: 10, paddingLeft: 20, paddingRight: 30}}>
                     <Text style={styles.title}>{rowData.title}</Text>
                   </View>
-                  <View key={rowID}>
-                    <Text>Next</Text>
+                  <View style={{flex: 1, justifyContent: 'center',
+                    alignItems: 'center', paddingRight: 20}} key={rowID}>
+                    <Image style={{width: 15, height: 45, resizeMode:'contain', tintColor:'gray'}} source={require('../../icon/leftarrow.png')}/>
                   </View>
               </View>
             </TouchableOpacity>
@@ -88,10 +89,14 @@ const styles = StyleSheet.create({
   },
   row:{
     flexDirection: 'row',
-    height: 100
+    height: 120,
+    backgroundColor: 'rgba(28, 28, 40, .75)',
+    borderBottomWidth: 1,
+    borderColor: 'rgba(28, 28, 40, 1)'
   },
   title:{
-    fontSize: 20
+    fontSize: 20,
+    color: 'white',
   },
   image:{
     flex: 1

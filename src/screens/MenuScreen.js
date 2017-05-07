@@ -66,7 +66,8 @@ class MenuScreen extends Component {
 
 const styles = StyleSheet.create({
   list: {
-    marginTop: 64
+    marginTop: 64,
+    backgroundColor: 'rgba(28, 28, 40, .75)',
   },
   background: {
     width: width,
