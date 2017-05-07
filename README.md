@@ -1,4 +1,5 @@
-![Chef React Native](https://raw.githubusercontent.com/dal2kh0und/react-native-chef-master/master/src/images/header.jpg)
+![header](https://cloud.githubusercontent.com/assets/16816991/25781335/22f27352-3363-11e7-8369-6573948faf81.png)
+
 
 React-Native cross-platform cooking application, Implement as term project for ITS485 course.test
 
