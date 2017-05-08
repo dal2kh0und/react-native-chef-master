@@ -43,7 +43,7 @@ export default class recommend extends Component {
       this.setState({dataSource: ds.cloneWithRows(data)});
     });
   }
-  
+
   render() {
     return (
       <Image source={require('../../images/background.jpg')}
@@ -55,8 +55,10 @@ export default class recommend extends Component {
         renderRow={(rowData, rowID) => {
           console.log('rowData', rowData);
           return (
-            <TouchableOpacity onPress={()=> this.props.navigator.push({index: 1,
-               passProps:{imdbID: rowData.imdbID}})}>
+            <TouchableOpacity onPress={()=> this.props.navigator.push({
+              screen: "chef.menuinfo",
+              title: "Recipes",
+              passProps:{recipe_id: rowData.recipe_id} })}>
               <View style={styles.row}>
                   <View style={{flex:5}}>
                     <Image style={styles.image} source={{uri: rowData.image_url}}/>
@@ -71,15 +73,13 @@ export default class recommend extends Component {
               </View>
             </TouchableOpacity>
           )
-        }
-
-        }
-
+        }}
       />
 
       </Image>
     );
   }
+
 }
 
 

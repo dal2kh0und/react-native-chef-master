@@ -15,8 +15,10 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
-  ListView
+  ListView,
+  TouchableHighlight
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 var {width, height} = Dimensions.get('window');
@@ -51,12 +53,25 @@ class MenuScreen extends Component {
         style={styles.background}>
         <ScrollView style={styles.list}>
 
-          <TouchableOpacity onPress={this.onPushPopular.bind(this)} >
-            <Image style={styles.pop}source={require('../images/popback.jpg')}/>
-          </TouchableOpacity>
-          <ListView
+          <TouchableHighlight onPress={this.onPushPopular.bind(this)} underlayColor='#ff9900'>
+            <Image style={styles.pop}source={require('../images/popback.jpg')}>
+              <Text style={styles.popText}>Popular recipes!!</Text>
+              <Text style={styles.here}>HERE</Text>
+            </Image>
+          </TouchableHighlight>
+
+          <ListView style={styles.content}
             dataSource={this.state.dataSource}
-            renderRow={(rowData) => <Text style={{color: 'white'}}>{rowData}</Text>}/>
+            renderRow={(rowData) =>
+              <View style={styles.row}>
+                <View style={{flex: 12}}>
+                  <Text style={styles.text}>{rowData}</Text>
+                </View>
+                <View style={{flex: 1}}>
+                  <Image style={styles.img} source={require('../icon/leftarrow.png')}/>
+                </View>
+              </View>
+            }/>
 
         </ScrollView>
       </Image>
@@ -83,8 +98,47 @@ const styles = StyleSheet.create({
   },
   pop: {
     flex: 1,
+    width: width,
     height: 200,
-    // resizeMode:'contain'
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  popText: {
+    flex: 1,
+    width: width,
+    backgroundColor: 'rgba(28, 28, 40, .55)',
+    textAlign: 'center',
+    paddingTop: 65,
+    fontSize: 25,
+    color: 'white',
+    textShadowColor: '#393939',
+    textShadowOffset: {width: 2.5, height: 2.5},
+    textShadowRadius: 3
+  },
+  here: {
+    flex: 2,
+    width: width,
+    backgroundColor: 'rgba(28, 28, 40, .55)',
+    textAlign: 'center',
+    color: '#ff9900',
+    fontSize: 25,
+    fontWeight: 'bold'
+  },
+  content: {
+    //backgroundColor: 'red',
+
+  },
+  text: {
+    padding: 20,
+    color: 'white',
+  },
+  row: {
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  img: {
+    width: 10, height: 25, resizeMode:'contain', tintColor:'gray'
   }
 });
 
