@@ -63,6 +63,7 @@ class MenuScreen extends Component {
           <ListView style={styles.content}
             dataSource={this.state.dataSource}
             renderRow={(rowData) =>
+              <TouchableOpacity>
               <View style={styles.row}>
                 <View style={{flex: 12}}>
                   <Text style={styles.text}>{rowData}</Text>
@@ -71,6 +72,7 @@ class MenuScreen extends Component {
                   <Image style={styles.img} source={require('../icon/leftarrow.png')}/>
                 </View>
               </View>
+              </TouchableOpacity>
             }/>
 
         </ScrollView>
@@ -133,7 +135,7 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   row: {
-    borderBottomWidth: 1,
+    borderTopWidth: 1,
     flexDirection: 'row',
     alignItems: 'center'
   },

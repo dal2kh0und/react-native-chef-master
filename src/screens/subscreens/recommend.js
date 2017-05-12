@@ -53,12 +53,13 @@ export default class recommend extends Component {
         dataSource={this.state.dataSource}
         enableEmptySections={true}
         renderRow={(rowData, rowID) => {
-          console.log('rowData', rowData);
+
           return (
             <TouchableOpacity onPress={()=> this.props.navigator.push({
               screen: "chef.menuinfo",
               title: "Recipes",
-              passProps:{recipe_id: rowData.recipe_id} })}>
+              passProps:{recipe_id: rowData.recipe_id, title: rowData.title,
+              source_url: rowData.source_url, image_url: rowData.image_url} })}>
               <View style={styles.row}>
                   <View style={{flex:5}}>
                     <Image style={styles.image} source={{uri: rowData.image_url}}/>
@@ -98,6 +99,7 @@ const styles = StyleSheet.create({
   title:{
     fontSize: 20,
     color: 'white',
+    fontFamily: 'Avenir Next',
   },
   image:{
     flex: 1
