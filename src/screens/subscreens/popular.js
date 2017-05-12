@@ -13,7 +13,8 @@ import {
   View,
   Dimensions,
   ListView,
-  Image
+  Image,
+  TouchableOpacity
 } from 'react-native';
 
 
@@ -79,10 +80,14 @@ class popular extends Component {
           dataSource={this.state.dataSource}
           renderRow={(rowData) => {
             return (
-              <View style={styles.item}>
+              <TouchableOpacity style={styles.item} onPress={()=> this.props.navigator.push({
+                screen: "chef.menuinfo",
+                title: "Recipes",
+                passProps:{recipe_id: rowData.recipe_id, title: rowData.title,
+                source_url: rowData.source_url, image_url: rowData.image_url} })}>
                 <Image style={styles.image} source={{uri: rowData.image_url}}/>
                 <View style={styles.bottomBox}><Text style={styles.title}>{rowData.title}</Text></View>
-              </View>
+              </TouchableOpacity>
             );
           }}
         />

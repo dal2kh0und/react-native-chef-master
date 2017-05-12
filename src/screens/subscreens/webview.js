@@ -16,6 +16,9 @@ import {
 
 class webview extends Component {
 
+  constructor() {
+    super();
+  }
 
 }
 
