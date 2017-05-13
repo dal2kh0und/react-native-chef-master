@@ -4,6 +4,7 @@
  * @flow
  */
  // menu
+ //<TouchableOpacity style={styles.button} onPress={() => Linking.openURL(this.props.source_url)}>
 
 import React, { Component } from 'react';
 import {
@@ -67,7 +68,10 @@ class menuinfo extends Component {
 
             <Text style={styles.subtitle}>Ingredient:{'\n'}{'\n'}1. .....{'\n'}2. ......{'\n'}3. .....</Text>
 
-            <TouchableOpacity style={styles.button} onPress={() => Linking.openURL(this.props.source_url)}>
+            <TouchableOpacity style={styles.button} onPress={() => this.props.navigator.push({
+              screen: "chef.webview",
+              title: this.props.title,
+              passProps:{source_url: this.props.source_url} })}>
               <Text style={styles.buttonText}>START COOKING</Text>
             </TouchableOpacity>
 
@@ -104,7 +108,7 @@ const styles = StyleSheet.create({
   content: {
     paddingTop: 25,
     flex: 1,
-    backgroundColor: 'lightgray',
+    backgroundColor: 'rgba(245, 245, 245, .8)',
   },
   title:{
     fontSize: 30,
@@ -113,7 +117,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   subtitle: {
-    paddingLeft: 10,
+    paddingLeft: 15,
     fontSize: 20,
     fontFamily: 'Avenir Next',
   },
@@ -123,6 +127,7 @@ const styles = StyleSheet.create({
     margin: 20
   },
   button: {
+    marginTop: 20,
     width: width,
     height: 40,
     alignItems: 'center',
@@ -130,7 +135,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#ff9900'
   },
   buttonText: {
-
+    fontWeight: 'bold',
+    color: 'brown',
+    fontFamily: 'Avenir Next'
   }
 });
 

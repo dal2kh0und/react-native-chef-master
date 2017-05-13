@@ -50,14 +50,14 @@ export default class MainScreen extends Component {
                 <Text style={styles.maintitle}>Cooking is easy!!</Text>
               </Image>
               </View>
-              <View style={styles.slide2}>
+              <TouchableOpacity onPress={this.onPushPressSweet.bind(this)} style={styles.slide2}>
                 <Image resizeMode='contain' source={require('../images/sweet.jpg')} style={{flex: 1}}>
-                  <Text style={styles.maintitle}>Cooking is easy!!</Text>
+                  <Text style={styles.maintitle}>Macaron Time!!</Text>
                 </Image>
-              </View>
+              </TouchableOpacity>
               <View style={styles.slide3}>
               <Image resizeMode='contain' source={require('../images/restaurant.jpg')} style={{flex: 1}}>
-                <Text style={styles.maintitle}>Cooking is easy!!</Text>
+                <Text style={styles.maintitle}>Enjoy dinner meal!!</Text>
               </Image>
               </View>
             </Swiper>
@@ -74,9 +74,9 @@ export default class MainScreen extends Component {
             </TouchableOpacity>
 
             <View style={styles.menu2}>
-              <View style={styles.submenu3}>
+              <TouchableOpacity style={styles.submenu3}>
                 <Image resizeMode='stretch' style={styles.submenu3} source={require('../images/carrot.jpg')}/>
-              </View>
+              </TouchableOpacity>
               <View style={styles.submenu4}>
                 <Swiper style={styles.swiper}
                   width={width/1.5} height={150} autoplay activeDotColor={'#ff9900'} horizontal={false}>
@@ -94,7 +94,7 @@ export default class MainScreen extends Component {
             </View>
 
             <View style={styles.menu1}>
-              <TouchableOpacity style={{flex: 1, flexDirection: 'row',flexWrap: 'wrap'}}>
+              <TouchableOpacity onPress={this.onPushPressCoffee.bind(this)} style={{flex: 1, flexDirection: 'row',flexWrap: 'wrap'}}>
                 <View style={styles.submenu1}>
                   <Icon name="ios-cafe" size={50} color={'gray'}/>
                   <Text style={{color: 'white', textAlign:'center'}}>Coffee Time</Text>
@@ -118,6 +118,20 @@ export default class MainScreen extends Component {
     this.props.navigator.push({
       title: "Recommend",
       screen: "chef.recommend",
+    });
+  }
+
+  onPushPressCoffee() {
+    this.props.navigator.push({
+      title: "Coffee Time",
+      screen: "chef.coffee"
+    });
+  }
+
+  onPushPressSweet() {
+    this.props.navigator.push({
+      title: "Macaron Time",
+      screen: "chef.sweet"
     });
   }
 }

@@ -19,7 +19,7 @@
 let rootURL = 'http://food2fork.com/api/';
 
 exports.search = function(q){
-  let url = `${rootURL}search?key=1e29673a7433981f986f3a857a36e6bb&q=${q}`;
+  let url = `${rootURL}search?key=c4fa33870c8d4495b4847ba2498f2979&q=${q}`;
   console.log(url);
   return fetch(url)
     .then((resp)=>resp.json())
@@ -29,7 +29,7 @@ exports.search = function(q){
 }
 
 exports.view = function(id){
-  let url = `${rootURL}get?key=1e29673a7433981f986f3a857a36e6bb&rId=${id}`;
+  let url = `${rootURL}get?key=c4fa33870c8d4495b4847ba2498f2979&rId=${id}`;
   return fetch(url)
     .then((resp)=>resp.json());
 }

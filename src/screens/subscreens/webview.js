@@ -4,22 +4,53 @@ import {
   StyleSheet,
   Text,
   View,
-  Dimensions,
   Image,
   ScrollView,
   TouchableOpacity,
-  ListView,
-  TouchableHighlight,
-  Linking,
-  WebView
+  WebView,
+  Dimensions
 } from 'react-native';
 
-class webview extends Component {
+var {width, height} = Dimensions.get('window');
 
-  constructor() {
-    super();
+export default class webview extends Component {
+
+  static navigatorStyle = {
+    drawUnderNavBar: true,
+    //navBarBlur: true,
+    navBarTranslucent: true,
+    statusBarTextColorScheme: 'light',
+    tabBarHidden: true
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      url: this.props.source_url
+    };
   }
+
+  render() {
+    return (
+      <Image source={require('../../images/background.jpg')}
+        style={styles.background}>
+        <WebView
+          source={{uri: this.state.url}}
+          style={styles.webview}>
+        </WebView>
+      </Image>
+      )
+    }
 
 }
 
-export default webview;
+const styles = StyleSheet.create({
+  background: {
+    width: width,
+    height: height,
+  },
+  webview: {
+    width: width,
+    paddingTop: 64
+  }
+});

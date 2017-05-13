@@ -63,7 +63,10 @@ class MenuScreen extends Component {
           <ListView style={styles.content}
             dataSource={this.state.dataSource}
             renderRow={(rowData) =>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={()=> this.props.navigator.push({
+                screen: "chef."+rowData,
+                title: rowData,
+                passProps:{rowData} })}>
               <View style={styles.row}>
                 <View style={{flex: 12}}>
                   <Text style={styles.text}>{rowData}</Text>

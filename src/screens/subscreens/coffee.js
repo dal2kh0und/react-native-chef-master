@@ -23,7 +23,7 @@ import api from '../../api/api.js';
 
 var {width, height} = Dimensions.get('window');
 
-class popular extends Component {
+class coffee extends Component {
 
   // static navigatorButtons = {
   //   leftButtons: [
@@ -55,7 +55,7 @@ class popular extends Component {
     this.state = {
       dataSource: ds.cloneWithRows([]),
     };
-    api.search('noodle').then((data) => {
+    api.search('coffee').then((data) => {
       this.setState({dataSource: ds.cloneWithRows(data)});
     });
     // this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
@@ -133,4 +133,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default popular;
+export default coffee;
