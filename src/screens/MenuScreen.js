@@ -64,7 +64,7 @@ class MenuScreen extends Component {
             dataSource={this.state.dataSource}
             renderRow={(rowData) =>
               <TouchableOpacity onPress={()=> this.props.navigator.push({
-                screen: "chef."+rowData,
+                screen: "chef.menudata",
                 title: rowData,
                 passProps:{rowData} })}>
               <View style={styles.row}>

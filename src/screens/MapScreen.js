@@ -10,6 +10,8 @@ import {
 
 // import map apis
 import MapView from 'react-native-maps';
+import Swiper from 'react-native-swiper';
+
 import LocationButton from '../screens/locationButton.js';
 
 
@@ -35,6 +37,12 @@ export default class MapScreen extends Component {
         longitudeDelta: 0.005,
       },
       markers:[
+        {latlng: {latitude: 13.989045, longitude: 100.617598},
+          title: "Future Park Rangsit",
+          image: require('../images/shopping.png')},
+        {latlng: {latitude: 13.981246, longitude: 100.550525},
+          title: "7-11 Bangkradi",
+          image: require('../images/shopping.png')},
         {latlng: {latitude: 13.764884, longitude: 100.538265},
           image: require('../images/attention.png'),
           photo: require('../images/Victory_Monument.jpg'),
@@ -70,47 +78,14 @@ export default class MapScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <MapView style={styles.map}
-          ref="map"
-          showsBuildings={true}
-          mapType="standard"
-          showsUserLocation={true}
-          toolbarEnabled={true}
-          userLocationAnnotationTitle="My Location"
-          followsUserLocation={true}
-          region={this.state.region}
-          onRegionChange={this.onRegionChange}
-        >
-        {this.state.markers.map((marker, i) => (
-          <MapView.Marker
-            key={i}
-            ref={i}
-            coordinate={marker.latlng}
-            image={marker.image}
-            title={marker.title}
-            description={marker.description}>
-            <MapView.Callout>
-              <View style={styles.callout}>
-                <Image style={styles.calloutPhoto}
-                  source={marker.photo}/>
-                <Text style={styles.calloutTitle}>
-                  {marker.title}
-                </Text>
-                <Text>{marker.description}</Text>
-              </View>
-            </MapView.Callout>
-          </MapView.Marker>
-        ))}
+        <MapView style={styles.map}>
 
-        <View style={styles.markBot}>
-          {this.state.markers.map((marker, i) => (
-            <LocationButton key={i}
-              name={i}
-              moveMaptoLocation={this.moveMaptoLocation}
-              marker={marker}/>
-          ))}
+
+        <View style={styles.bar}>
+
         </View>
         </MapView>
+
       </View>
     );
   }
@@ -118,27 +93,15 @@ export default class MapScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   map: {
     width: width,
-    height: height
+    height: height,
   },
-  callout: {
-    flex: 1,
-    padding: 10,
-    marginBottom: 10
-  },
-  calloutPhoto: {
-    flex: 1,
-    width: 166,
-    height: 83
-  },
-  calloutTitle: {
-    fontSize: 16
-  },
-  markBot: {
-    alignItems: 'center',
-    marginTop: 450,
+  bar: {
+    width: width,
+    height: height/3,
+    backgroundColor: 'white'
   }
 });

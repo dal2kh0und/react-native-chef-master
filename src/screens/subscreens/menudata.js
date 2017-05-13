@@ -23,7 +23,7 @@ import api from '../../api/api.js';
 var {width, height} = Dimensions.get('window');
 
 
-export default class recommend extends Component {
+export default class menudata extends Component {
 
   static navigatorStyle = {
     drawUnderNavBar: true,
