@@ -39,14 +39,16 @@ export default class MapScreen extends Component {
       markers:[
         {latlng: {latitude: 13.989045, longitude: 100.617598},
           title: "Future Park Rangsit",
-          image: require('../images/shopping.png')},
+          image: require('../images/shopping.png'),
+          description: "A large shopping mall in Rangsit."},
         {latlng: {latitude: 13.981246, longitude: 100.550525},
           title: "7-11 Bangkradi",
-          image: require('../images/shopping.png')},
+          image: require('../images/shopping.png'),
+          description: "24hr shopping."},
         {latlng: {latitude: 13.764884, longitude: 100.538265},
-          image: require('../images/attention.png'),
           photo: require('../images/Victory_Monument.jpg'),
-          title: "Victory Monument", description: "A large military monument."}
+          title: "Victory Monument",
+          description: "A large military monument."}
       ]
     };
     this.onRegionChange = this.onRegionChange.bind(this);
@@ -84,8 +86,7 @@ export default class MapScreen extends Component {
               coordinate={marker.latlng}
               image={marker.image}
               title={marker.title}
-              description={marker.description}>
-            </MapView.Marker>
+              description={marker.description}/>
           ))}
 
         </MapView>

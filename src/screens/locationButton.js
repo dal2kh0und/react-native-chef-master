@@ -8,9 +8,7 @@ export default class LocationButton extends Component {
     return (
       <TouchableOpacity style={styles.button} onPress={()=>
         this.props.moveMaptoLocation(this.props.marker.latlng, this.props.name)}>
-        
         <Text style={styles.text}>{this.props.marker.title}</Text>
-
       </TouchableOpacity>
     );
   }
@@ -31,16 +29,4 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 20
   },
-  img1: {
-    width: 10,
-    height: 15,
-    marginRight: 80,
-    opacity: 0.5
-  },
-  img2: {
-    width: 10,
-    height: 15,
-    marginLeft: 80,
-    opacity: 0.5
-  }
 });
