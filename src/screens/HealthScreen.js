@@ -56,7 +56,7 @@ export default class HealthScreen extends Component {
   render() {
     return (
       <Navigator
-          initialRoute={routes[1]}
+          initialRoute={routes[0]}
           initialRouteStack={routes}
           renderScene={
             (route, navigator) => {
