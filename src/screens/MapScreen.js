@@ -46,13 +46,7 @@ export default class MapScreen extends Component {
         {latlng: {latitude: 13.764884, longitude: 100.538265},
           image: require('../images/attention.png'),
           photo: require('../images/Victory_Monument.jpg'),
-          title: "Victory Monument", description: "A large military monument."},
-        {latlng: {latitude: 13.763681, longitude: 100.538125},
-          image: require('../images/music.png'),
-          title: "Saxohpone Club", description: "A music club."},
-        {latlng: {latitude: 13.764595, longitude: 100.537438},
-          image: require('../images/shopping.png'),
-          title: "Coco Department Store", description: "Fashion department."},
+          title: "Victory Monument", description: "A large military monument."}
       ]
     };
     this.onRegionChange = this.onRegionChange.bind(this);
@@ -68,7 +62,7 @@ export default class MapScreen extends Component {
       latitudeDelta: 0.002,
       longitudeDelta: 0.002,
       ...latlng,
-    }, 1000);
+    }, 2000);
     setTimeout(() => {
       console.log(this.refs, key);
       this.refs[key].showCallout();
@@ -77,31 +71,63 @@ export default class MapScreen extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <MapView style={styles.map}>
+      <Image source={require('../images/background.jpg')}
+        style={styles.container}>
+        <MapView ref="map" style={styles.map}
+          region={this.state.region}
+          onRegionChange={this.onRegionChange}>
 
+          {this.state.markers.map((marker,i) => (
+            <MapView.Marker
+              key={i}
+              ref={i}
+              coordinate={marker.latlng}
+              image={marker.image}
+              title={marker.title}
+              description={marker.description}>
+            </MapView.Marker>
+          ))}
 
-          <View style={styles.bar}>
-
-          </View>
         </MapView>
-      </View>
+        <View style={styles.bar}>
+          <Swiper>
+          {this.state.markers.map((marker,i) => (
+            <LocationButton key={i}
+              name={i}
+              moveMaptoLocation={this.moveMaptoLocation}
+              marker={marker}/>
+          ))}
+          </Swiper>
+        </View>
+      </Image>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width: width,
+    height: height
   },
   map: {
     width: width,
-    height: height,
+    height: height/1.16,
   },
   bar: {
-    marginTop: height/1.3,
     width: width,
-    height: height/6,
-    backgroundColor: 'white'
+    flexDirection: 'row',
+  },
+  callout: {
+    flex: 1,
+    backgroundColor: 'white',
+    padding: 10,
+  },
+  callouttxt: {
+    fontSize: 16
+  },
+  calloutimg: {
+    alignSelf: 'center',
+    width: 166,
+    height: 83
   }
 });
