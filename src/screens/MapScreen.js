@@ -81,11 +81,10 @@ export default class MapScreen extends Component {
         <MapView style={styles.map}>
 
 
-        <View style={styles.bar}>
+          <View style={styles.bar}>
 
-        </View>
+          </View>
         </MapView>
-
       </View>
     );
   }
@@ -100,8 +99,9 @@ const styles = StyleSheet.create({
     height: height,
   },
   bar: {
+    marginTop: height/1.3,
     width: width,
-    height: height/3,
+    height: height/6,
     backgroundColor: 'white'
   }
 });
