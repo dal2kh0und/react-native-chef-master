@@ -42,13 +42,25 @@ export default class MapScreen extends Component {
           image: require('../images/shopping.png'),
           description: "A large shopping mall in Rangsit."},
         {latlng: {latitude: 13.981246, longitude: 100.550525},
-          title: "7-11 Bangkradi",
+          title: "7-11 (Bangkradi branch)",
           image: require('../images/shopping.png'),
-          description: "24hr shopping."},
-        {latlng: {latitude: 13.764884, longitude: 100.538265},
-          photo: require('../images/Victory_Monument.jpg'),
-          title: "Victory Monument",
-          description: "A large military monument."}
+          description: "24hr shopping"},
+        {latlng: {latitude: 13.886631, longitude: 100.581933},
+          image: require('../images/shopping.png'),
+          title: "Foodland Supermarket",
+          description: "IT Square branch"},
+        {latlng: {latitude: 14.073096, longitude: 100.598450},
+          image: require('../images/shopping.png'),
+          title: "Lawson 108 Supermarket",
+          description: "TU Asian domitory branch"},
+        {latlng: {latitude: 14.078048, longitude: 100.610795},
+          image: require('../images/shopping.png'),
+          title: "Lawson 108 Supermarket",
+          description: "AIT branch"},
+        {latlng: {latitude: 14.069219, longitude: 100.600503},
+          image: require('../images/shopping.png'),
+          title: "Lawson 108 Statio",
+          description: "TU gym branch"}
       ]
     };
     this.onRegionChange = this.onRegionChange.bind(this);
