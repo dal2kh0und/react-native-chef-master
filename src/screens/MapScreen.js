@@ -59,7 +59,7 @@ export default class MapScreen extends Component {
           description: "AIT branch"},
         {latlng: {latitude: 14.069219, longitude: 100.600503},
           image: require('../images/shopping.png'),
-          title: "Lawson 108 Statio",
+          title: "Lawson 108 Station",
           description: "TU gym branch"}
       ]
     };
