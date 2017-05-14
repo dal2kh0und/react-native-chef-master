@@ -11,7 +11,6 @@ import webview from './subscreens/webview';
 import coffee from './subscreens/coffee';
 import sweet from './subscreens/sweet';
 import menudata from './subscreens/menudata';
-import healthinfo from './subscreens/healthinfo';
 import healthdata from './subscreens/healthdata';
 
 // register all screens of the app (including internal ones)
@@ -27,6 +26,5 @@ export function registerScreens() {
   Navigation.registerComponent('chef.coffee', () => coffee);
   Navigation.registerComponent('chef.sweet', () => sweet);
   Navigation.registerComponent('chef.menudata', () => menudata);
-  Navigation.registerComponent('chef.healthinfo', () => healthinfo);
   Navigation.registerComponent('chef.healthdata', () => healthdata);
 }
