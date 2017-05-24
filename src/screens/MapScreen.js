@@ -88,6 +88,8 @@ export default class MapScreen extends Component {
       <Image source={require('../images/background.jpg')}
         style={styles.container}>
         <MapView ref="map" style={styles.map}
+          showsUserLocation={true}
+          followsUserLocation={true}
           region={this.state.region}
           onRegionChange={this.onRegionChange}>
 
@@ -124,7 +126,7 @@ const styles = StyleSheet.create({
   },
   map: {
     width: width,
-    height: height/1.16,
+    height: height/1.14,
   },
   bar: {
     width: width,

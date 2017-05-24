@@ -66,7 +66,7 @@ class menuinfo extends Component {
 
             <View style={styles.line}/>
 
-            <Text style={styles.subtitle}>Ingredient:{'\n'}{'\n'}1. .....{'\n'}2. ......{'\n'}3. .....</Text>
+            <Text style={styles.subtitle}>Ingredient:{'\n'}{'\n'}1. Dummy Text 1{'\n'}2. Dummy Text 2{'\n'}3. Dummy Text 3{'\n'}4. Dummy Text 4{'\n'}5. Dummy Text 5</Text>
 
             <TouchableOpacity style={styles.button} onPress={() => this.props.navigator.push({
               screen: "chef.webview",
