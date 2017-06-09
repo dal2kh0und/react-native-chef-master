@@ -8,7 +8,7 @@ React-Native cross-platform cooking application, Implement as term project for I
 By 4Angies,
 React-Native version: 0.42.0, Tested on iOS 10.2+
 
-# Interface
+## Interface
 
 ![inter](https://user-images.githubusercontent.com/16799884/26963727-4786bd58-4d18-11e7-8793-c0c29c3907f2.gif)
 
