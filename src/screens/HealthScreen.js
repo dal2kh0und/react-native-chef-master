@@ -21,8 +21,7 @@
 import api from '../api/healthapi.js';
 
  var {width, height} = Dimensions.get('window');
- var list = ['1%20large%20apple'];
-
+ var list = [];
 
 export default class HealthScreen extends Component {
 
