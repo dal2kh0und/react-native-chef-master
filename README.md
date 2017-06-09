@@ -10,7 +10,7 @@ React-Native version: 0.42.0, Tested on iOS 10.2+
 
 # Interface
 
-![int-example](https://user-images.githubusercontent.com/16799884/26963526-302f7de4-4d17-11e7-91bd-e9ddd2ab9a9f.gif)
+![inter](https://user-images.githubusercontent.com/16799884/26963727-4786bd58-4d18-11e7-8793-c0c29c3907f2.gif)
 
 ## Group Members
 
